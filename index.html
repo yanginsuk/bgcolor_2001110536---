@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: lightyellow;
+        }
+        .bgcolor--blue{
+            background-color: lightblue;
+        }
+        .bgcolor--gray{
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="btns">
+        <button class="btn_toggle">배경색상변경 토글버튼</button>
+        <button class="btn--reset">배경색상변경 리셋</button>
+        <button class="btn--bggray">배경색상변경 그레이</button>
+    </div>
+
+    <script>
+        const btnToggle=document.querySelector('.btn_toggle');
+        //addEventListener('이벤트', 실행함수);
+        btnToggle.addEventListener('click', function () {
+        document.body.classList.toggle('bgcolor--blue');
+            //console.log('버튼클릭');
+
+        });
+        const btnReset = document.querySelector('.btn--reset');
+        btnReset.addEventListener('', function () {
+            document.body.classList.remove('bgcolor--blue')
+        });
+
+        const btnBggray = document.querySelector('.btn--bggray');
+        btnBggray.addEventListener('click', function () {
+            document.body.classList.add('bgcolor--gray');
+        })
+    </script>
+
+</body>
+</html>
