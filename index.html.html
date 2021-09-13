@@ -7,30 +7,34 @@
     <title>Document</title>
     <style>
         body{
-            background-color: none;
+            background-color: lightyellow;
         }
         .bgcolor--blue{
             background-color: lightblue;
         }
-        .box{
-        width: 100px;
-        height: 100px;
-        background-color: orange;
-        }
-        .box--blue{
-
+        .bgcolor--gray{
+            background-color: lightgray;
         }
     </style>
 </head>
 <body>
-    <button class="btn_bg">배경색상변경</button>
+    
+    <div class="btns">
+        <button class="btn_toggle">배경색상변경 토글버튼</button>
+        <button class="btn--reset">배경색상변경 리셋</button>
+        <button class="btn--bggray">배경색상변경 그레이</button>
+    </div>
     <script>
-        const btnBg = document.querySelector('.btn_bg');
+        const btnToggle = document.querySelector('.btn_toggle');
         //addEventListener('이벤트', 실행함수);
-        btnBg.addEventListener('click', function () {
+        btnToggle.addEventListener('click', function () {
         document.body.classList.toggle('bgcolor--blue');
             //console.log('버튼클릭');
 
+        });
+        const btnReset = document.querySelector('.btn--reset');
+        btnReset.addEventListener('', function () {
+            document.body.classList.remove('bgcolor--blue')
         });
     </script>
 
