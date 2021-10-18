@@ -3,36 +3,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <style>
         body{
             background-color: lightyellow;
             transition: all 1s;
-            height: 200px;
+            margin: 0;
+            height: 2000px;
         }
         .bgcolor--blue{
             background-color: lightblue;
         }
         .bgcolor--gray{
-            background-color: lightgray;
+            background-color:lightgray;
         }
-        
+
         .btns{
             position: relative;
             margin: auto;
             text-align: center;
-            top: 60px;
+            top: 120px;
         }
-        .bg__img{
+        
+        .bg__img{  
             margin: 0;
             position: absolute;
             width: 100vw;
             height: 100vh;
-            background: url(bg.jpg); 
-            transition: 1s;
+            background: url('bg.jpg');
+            transition: all 1s;
             opacity: 0;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%;
         }
+
         .bg__img--show{
             opacity: 1;
+        }
+
+        .btns {
+            position: fixed;
+            padding: 10px;
+            background-color: transparent;
+            transition: 0.3s;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+            top: 60px;
+        }
+
+        .btns.bgshow{
+            background-color: blue;
+        }
+
+        .Top{
+            position: fixed;
+            top: 400px;
+            right: 20%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: none;
         }
     </style>
 </head>
@@ -41,39 +74,71 @@
     <div class="btns">
         <div class="container">
             <div class="btns__menu">
-                <button class="btn_toggle">배경색상변경 토글버튼</button>
-                <button class="btn--reset">배경색상 리셋</button>
-                <button class="btn--bggray">배경색상변경 그레이</button>
-                <button class="btn--bgimg">배경 이미지</button>        
-            </div>
-        </div>
+        <button class="btn_toggle">배경색상 토글버튼</button>
+        <button class="btn--reset">배경색상 리셋</button>
+        <button class="btn--bggray">배경색상변경 그레이</button>
+        <button class="btn--bgimg">배경이미지</button>
     </div>
+    </div>
+    </div>
+    <div class="Top" onclick="topup()" style="display: none;">
+        <img src="up.png" alt="">
+    </div>
+
+    
+    
     <script>
-        const btnToggle = document.querySelector('.btn_toggle');
-        btnToggle.addEventListener('click', function()  {
-            bgContainer.classList.remove('bg__img--show');
-            document.body.classList.toggle('bgcolor--blue');
+    const bgContainer = document.querySelector('.bg__img');
 
-        });
-        const btnReset = document.querySelector('.btn--reset');
-        btnReset.addEventListener('click', function()  {
-            bgContainer.classList.remove('bg__img--show');
-            document.body.classList.remove('bgcolor--blue', 'bgcolor--gray', 'bg__img' );
-        });
-        const btnBgGray = document.querySelector('.btn--bggray');
-            btnBgGray.addEventListener('click', function(){
-            bgContainer.classList.remove('bg__img--show');
-            document.body.classList.add('bgcolor--gray');
-        });
-        const bgContainer = document.querySelector('.bg__img');
-        const btnbgImg = document.querySelector('.btn--bgimg');
-        btnbgImg.addEventListener('click',function(){
-            //doc
-            bgContainer.classList.add('bg__img--show');
+    const btnToggle = document.querySelector('.btn_toggle');
+      // addEventListener('이벤트', 실행함수);
+    btnToggle.addEventListener('click', function () {
+        bgContainer.classList.remove('bg__img--show');
+        document.body.classList.toggle('bgcolor--blue');
+        //console.log('버튼클릭');
+    });
+    
+    const btnReset = document.querySelector('.btn--reset');
+      //document.querySelector('.btn--reset').addEventlistener
+    btnReset.addEventListener('click', function () {
+        bgContainer.classList.remove('bg__img--show');
+        document.body.classList.remove('bgcolor--blue', 'bgcolor--gray', 'bg--img');
+    });
+    
+    const btnBgGray = document.querySelector('.btn--bggray');
+    btnBgGray.addEventListener('click', function () {
+        bgContainer.classList.remove('bg__img--show');
+        document.body.classList.add('bgcolor--gray');
+    });
+
+    const btnBgImg = document.querySelector('.btn--bgimg');
+    btnBgImg.addEventListener('click', function () {
+        // document.body.classlist.add('bg--img');
+        bgContainer.classList.add('bg__img--show');
+});
+    
+    const navcontainer = document.querySelector('.btns')
+    document.addEventListener('scroll', function () {
+        console.log(window.scrollY);
+        if (window.scrollY > 100) {
+            navcontainer.classList.add('bgshow');
+        } else {
+            navcontainer.classList.remove('bgshow');
+        }
+    });
+    
+    document.addEventListener('scroll',function(){
+            if(window.scrollY > 500){
+            document.querySelector(".Top").style.display = "block";
+            console.log("500");
+            }else{
+                document.querySelector(".Top").style.display = "none";
+            }
         });
 
-        
-    </script>
+        function topup(){
+            window.scrollTo({top:0, left:0, behavior:'smooth'});
+        }
+        </script>
 
-</body>
-</html>
+</body></html>
