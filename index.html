@@ -35,7 +35,7 @@
             opacity: 0;
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 60%;
+            background-size: 100%;
         }
 
         .bg__img--show{
@@ -67,6 +67,45 @@
             cursor: pointer;
             display: none;
         }
+        section{
+            width: 100%;
+        }
+        
+        .wrapper{
+            max-width: 1200px;
+            margin: auto;
+        }
+        #home{
+            padding-top: 88px;
+            text-align: center;
+        }
+        #About{
+            text-align: center;
+            padding-top: 40px;
+        }
+        #Skills{
+            text-align: center;
+            padding-top: 40px;
+        }
+        #Works{
+            text-align: center;
+            padding-top: 40px;
+        }
+        #Contact{
+            text-align: center;
+            padding-top: 40px;
+        }
+        h1{
+            font-size: 48px;
+            color: skyblue;
+        }
+        h2{
+            font-size: 32px;
+        }
+        h3{
+            font-size: 24px;
+            font-weight: 300;
+        }
     </style>
 </head>
 <body>
@@ -85,6 +124,42 @@
         <img src="up.png" alt="">
     </div>
 
+    <section id="home">
+        <div class="wrapper">
+            <h1>Home</h1>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere molestiae, consequatur qui error ipsam possimus nihil dolorem provident itaque amet ea nobis, accusantium numquam illo quam corporis eius! Nemo, consectetur.</p>
+        </div>
+    </section>
+    <section id="About">
+        <div class="wrapper">
+            <h1>About</h1>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere molestiae, consequatur qui error ipsam possimus nihil dolorem provident itaque amet ea nobis, accusantium numquam illo quam corporis eius! Nemo, consectetur.</p>
+        </div>
+    </section>
+    <section id="Skills">
+        <div class="wrapper">
+            <h1>Skills</h1>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere molestiae, consequatur qui error ipsam possimus nihil dolorem provident itaque amet ea nobis, accusantium numquam illo quam corporis eius! Nemo, consectetur.</p>
+        </div>
+    </section>
+    <section id="Works">
+        <div class="wrapper">
+            <h1>Works</h1>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere molestiae, consequatur qui error ipsam possimus nihil dolorem provident itaque amet ea nobis, accusantium numquam illo quam corporis eius! Nemo, consectetur.</p>
+        </div>
+    </section>
+    <section id="Contact">
+        <div class="wrapper">
+            <h1>Contact</h1>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere molestiae, consequatur qui error ipsam possimus nihil dolorem provident itaque amet ea nobis, accusantium numquam illo quam corporis eius! Nemo, consectetur.</p>
+        </div>
+    </section>
+
     
     
     <script>
@@ -95,6 +170,7 @@
     btnToggle.addEventListener('click', function () {
         bgContainer.classList.remove('bg__img--show');
         document.body.classList.toggle('bgcolor--blue');
+        home.scrollIntoView({behavior: "smooth"})
         //console.log('버튼클릭');
     });
     
